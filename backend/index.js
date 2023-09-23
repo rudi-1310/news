@@ -61,13 +61,29 @@ app.post("/signup", async (req, res) => {
                 password: password,
                 FirstName: FirstName,
                 LastName: LastName,
-                interests: interests
+                interests: interests,
+                history: history
             });
 
             await newUser.save();
             res.json("success");
         }
     } catch (e) {
+        res.json("fail");
+    }
+});
+app.post("/api/saveTitle", async (req, res) => {
+    const { title } = req.body;
+
+    try {
+        const check = await User.findOne({ title: title });
+        const newUser = new User({
+            title: title
+        });
+
+        await newUser.save();
+    }
+    catch (e) {
         res.json("fail");
     }
 });

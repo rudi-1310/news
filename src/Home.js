@@ -11,7 +11,7 @@ function Home() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://newsdata.io/api/1/news?apikey=pub_29932e01ef0a9358beee19ff50890449c6324&language=en&category=' + `${btn}`);
+                const response = await axios.get('https://newsdata.io/api/1/news?apikey=pub_299331098fd85e8bb4b889f6d7cc504b94077&language=en&category=' + `${btn}`);
                 setData(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -21,6 +21,8 @@ function Home() {
         fetchData();
     }, [btn]);
     const filteredArticles = data.results ? data.results.filter(article => article.image_url !== null) : [];
+
+
     return (
         <div className='h-screen  bg-slate-400 flex flex-row'>
             <div className='flex  flex-col w-1/5 h-full  justify-start items-start p-10 bg-white mb-5'>

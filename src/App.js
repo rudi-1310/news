@@ -12,11 +12,8 @@ function App() {
         <Route path='/' element={<Register />} />
         <Route path='/home' element={<Home />} />
         <Route exact path="/signin" element={<SignIn />} />
-
       </Routes>
     </Router>
-
-
   );
 }
 
