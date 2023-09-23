@@ -9,7 +9,7 @@ const app = express();
 const User = require("./mongo");
 
 mongoose
-    .connect("mongodb://localhost:27017/pro")
+    .connect("mongodb+srv://new_user:skipper1007@cluster0.t3cyiey.mongodb.net/user")
     .then(() => {
         console.log("mongodb connected (app.js)");
     })
