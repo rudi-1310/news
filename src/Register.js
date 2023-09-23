@@ -10,8 +10,15 @@ export default function Register() {
     const [password, setPassword] = useState("");
     const [FirstName, setFirstName] = useState("");
     const [LastName, setLastName] = useState("");
-
+    const handleCategory = (e, value) => {
+        if (e.target.checked) {
+            setInterests([...interests, e.target.value]);
+        } else {
+            setInterests(interests.filter((id) => id !== e.target.value));
+        }
+    };
     async function submit(e) {
+        setInterests()
         e.preventDefault();
         try {
             const response = await axios.post("http://localhost:8000/signup", {
@@ -92,14 +99,7 @@ export default function Register() {
                                     name="interest"
                                     id="sports"
                                     value="sports"
-                                    checked={interests.includes('sports')}
-                                    onChange={(e) => {
-                                        if (e.target.checked) {
-                                            setInterests([...interests, 'sports']);
-                                        } else {
-                                            setInterests(interests.filter((interest) => interest !== 'sports'));
-                                        }
-                                    }}
+                                    onChange={handleCategory}
                                 />
                                 Sports
                             </label>
@@ -109,14 +109,7 @@ export default function Register() {
                                     name="interest"
                                     id="politics"
                                     value="politics"
-                                    checked={interests.includes('politics')}
-                                    onChange={(e) => {
-                                        if (e.target.checked) {
-                                            setInterests([...interests, 'politics']);
-                                        } else {
-                                            setInterests(interests.filter((interest) => interest !== 'politics'));
-                                        }
-                                    }}
+                                    onChange={handleCategory}
                                 />
                                 Politics
                             </label>
@@ -126,14 +119,8 @@ export default function Register() {
                                     name="interest"
                                     id="business"
                                     value="business"
-                                    checked={interests.includes('business')}
-                                    onChange={(e) => {
-                                        if (e.target.checked) {
-                                            setInterests([...interests, 'business']);
-                                        } else {
-                                            setInterests(interests.filter((interest) => interest !== 'business'));
-                                        }
-                                    }}
+
+                                    onChange={handleCategory}
                                 />
                                 Business
                             </label>
@@ -143,14 +130,7 @@ export default function Register() {
                                     name="interest"
                                     id="bollywood"
                                     value="bollywood"
-                                    checked={interests.includes('bollywood')}
-                                    onChange={(e) => {
-                                        if (e.target.checked) {
-                                            setInterests([...interests, 'bollywood']);
-                                        } else {
-                                            setInterests(interests.filter((interest) => interest !== 'bollywood'));
-                                        }
-                                    }}
+                                    onChange={handleCategory}
                                 />
                                 Bollywood
                             </label>
@@ -206,7 +186,6 @@ export default function Register() {
                             </button>
                         </div>
                     </form>
-
                     <p className="mt-10 text-center text-sm text-gray-500">
                         Already a Member?{' '}
                         <Link to="/signin" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">

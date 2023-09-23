@@ -48,7 +48,7 @@ app.post("/signin", async (req, res) => {
 
 // Route to handle POST request for signup
 app.post("/signup", async (req, res) => {
-    const { email, password, FirstName, LastName, interest } = req.body;
+    const { email, password, FirstName, LastName, interests } = req.body;
 
     try {
         const check = await User.findOne({ email: email });
@@ -61,7 +61,7 @@ app.post("/signup", async (req, res) => {
                 password: password,
                 FirstName: FirstName,
                 LastName: LastName,
-                interest: req.query.inter
+                interests: interests
             });
 
             await newUser.save();
