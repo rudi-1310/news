@@ -27,7 +27,6 @@ const userSchema = new mongoose.Schema({
         required: true,
     },
     interests: Array,
-    title: Array,
     history: { type: Array, default: [] }
 });
 

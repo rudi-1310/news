@@ -70,8 +70,8 @@ function Home() {
                 </div>
                 <div className='w-full flex flex-row flex-1 px-5 mt-20'>
                     <div className='flex flex-col'>
-                        <h1 className='text-lg'>Username</h1>
-                        <h1 className='text-lg'>A_sdsjj</h1>
+                        <h1 className='text-lg'>email:{localStorage.getItem('email')}</h1>
+
                     </div>
                 </div>
             </div>

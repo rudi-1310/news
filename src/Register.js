@@ -19,8 +19,10 @@ export default function Register() {
     };
     async function submit(e) {
         setInterests()
+
         e.preventDefault();
         try {
+
             const response = await axios.post("http://localhost:8000/signup", {
                 email,
                 password,
@@ -33,6 +35,7 @@ export default function Register() {
                 alert("User already exists");
             } else if (response.data === "success") {
                 NavigateVerify();
+                localStorage.setItem('email', email);
                 await axios.post('http://localhost:8000/verify', { email });
             }
         } catch (e) {

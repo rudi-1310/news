@@ -62,7 +62,6 @@ app.post("/signup", async (req, res) => {
                 FirstName: FirstName,
                 LastName: LastName,
                 interests: interests,
-                history: history
             });
 
             await newUser.save();
@@ -73,15 +72,10 @@ app.post("/signup", async (req, res) => {
     }
 });
 app.post("/api/saveTitle", async (req, res) => {
-    const { title } = req.body;
+    const { history } = req.body;
 
     try {
-        const check = await User.findOne({ title: title });
-        const newUser = new User({
-            title: title
-        });
-
-        await newUser.save();
+        console.log(history)
     }
     catch (e) {
         res.json("fail");

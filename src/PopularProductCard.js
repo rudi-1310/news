@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import axios from 'axios';
-
+const arr = new Array()
 export default function PopularProductCard({ title, description, image }) {
-    const [tit, setTit] = useState('');
 
-    const handleTitleClick = async (titt) => {
-        setTit(titt);
+
+    const handleTitleClick = async (history) => {
+
+        arr.push(history)
+        alert(history)
+        localStorage.setItem('history', arr)
+        console.log(localStorage.getItem('email'))
 
         // Make an HTTP POST request to your API to save the title
-        alert(titt); // Use the passed value directly
+        // Use the passed value directly
 
         await axios
-            .post('http://localhost:8000/api/saveTitle', { title: tit }) // Use titt here
+            .post('http://localhost:8000/api/saveTitle', { history: arr }) // Use titt here
             .then((response) => {
                 console.log('Title saved successfully');
             })
