@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-const arr = new Array()
+const arr = []
 export default function PopularProductCard({ title, description, image }) {
 
 
